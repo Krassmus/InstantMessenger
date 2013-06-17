@@ -1,0 +1,6 @@
+pluginclassname=InstantMessenger
+pluginname=InstantMessenger
+origin=data-quest
+version=1.1
+studipMinVersion=2.2
+studipMaxVersion=2.5

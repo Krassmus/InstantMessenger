@@ -1,0 +1,97 @@
+#messenger {
+    position: fixed;
+    top: 0px;
+    height: 600px;
+    background-color: white;
+    z-index: 100;
+}
+#messenger_layout_row {
+    display: table-row;
+}
+#messenger_layout_row > div {
+    display: table-cell;
+}
+#messenger_drag {
+    color: #999999;
+    width: 9px;
+    min-width: 9px;
+    background-color: #ddeeff;
+    cursor: pointer;
+}
+#messenger_drag:hover {
+    background-color: #ffffff !important; /*wegen des Highlight-Effektes nötig*/
+    color: #aaaaaa;
+}
+#messenger_dialog {
+    clear: both;
+}
+#messenger_dialog .dialog_accordion > div {
+    font-size: 0.8em !important;
+}
+#messenger_dialog .dialog_accordion > div font {
+    font-size: 0.8em;
+}
+#messenger_dialog .dialog_accordion > h2 {
+    overflow: hidden;
+}
+#messenger_contacts > * {
+    cursor: pointer;
+    display: inline !important;
+    width: 20px;
+}
+#messenger_dialog a.close {
+    display: block;
+    margin-left: 192px;
+    margin-top: 1px;
+    width: 16px;
+    height: 16px;
+}
+#messenger_dialog .dialog_accordion textarea {
+    width: 85%;
+    height: 50px;
+    display: block;
+    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#messenger_dialog div.messages > div {
+    display: block;
+    margin: 6px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    padding: 4px;
+    border: 3px solid white;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px #d0d0d0;
+}
+#messenger_discussion_system div.writer {
+    display: none !important;
+}
+#messenger_discussion_system .messages .avatar {
+    display: none;
+}
+#messenger_dialog .messages .avatar {
+    float: left;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    margin-top: -2px; /* doof, muss aber so */
+}
+#messenger_dialog .messages .avatar img {
+    margin-top: 0px;
+    vertical-align: text-top;
+    width: 13px;
+    height: 16px;
+}
+#nobody_online {
+    display: none;
+    font-size: 1.1em;
+    text-align: center;
+    color: #aaaaaa;
+    margin: 3px;
+}
+#messenger .ui-accordion-header.unread {
+    background-color: #ff3333;
+    color: white;
+}
+
