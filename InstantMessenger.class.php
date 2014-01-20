@@ -10,7 +10,7 @@
 
 require_once 'lib/classes/UpdateInformation.class.php';
 
-class InstantMessenger extends StudIPPlugin implements SystemPlugin {
+class InstantMessenger extends StudIPplugin implements SystemPlugin {
     
     protected $subject = "Instant Message";
     
@@ -96,14 +96,14 @@ class InstantMessenger extends StudIPPlugin implements SystemPlugin {
         $data = array();
 
         //Buddys abholen:
-        $online_buddies = $db->query(
-            "SELECT contact.user_id, UNIX_TIMESTAMP(user_data.changed) AS time " .
-            "FROM contact " .
-                "INNER JOIN user_data ON (user_data.sid = contact.user_id) " .
-            "WHERE contact.owner_id = ".$db->quote($GLOBALS['user']->id)." " .
-                "AND contact.buddy = '1' " .
-                "AND UNIX_TIMESTAMP(user_data.changed) > UNIX_TIMESTAMP() - (5*60) " .
-        "")->fetchAll(PDO::FETCH_ASSOC);
+        $online_buddies = $db->query("
+            SELECT c.user_id, UNIX_TIMESTAMP(uo.last_lifesign) time
+			FROM contact c
+			INNER JOIN user_online uo ON c.user_id = uo.user_id
+			WHERE c.owner_id =  ".$db->quote($GLOBALS['user']->id)."
+			AND uo.last_lifesign > UNIX_TIMESTAMP() - (5*60)
+			AND c.buddy =1;"
+            )->fetchAll(PDO::FETCH_ASSOC);
         $data['buddies'] = array();
         foreach ($online_buddies as $buddy) {
             if ($buddy['user_id'] !== $GLOBALS['user']->id) {
